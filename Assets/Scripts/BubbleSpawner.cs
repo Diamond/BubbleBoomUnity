@@ -9,6 +9,7 @@ public class BubbleSpawner : MonoBehaviour {
 	void Start () {
 		for (int i = 0; i < startingBubbleCount; i++) {
 			var newBubble = Instantiate(bubblePrefab) as Transform;
+			newBubble.parent = this.transform;
 		}
 	}
 }

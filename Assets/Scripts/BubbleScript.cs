@@ -45,27 +45,14 @@ public class BubbleScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		var leftBorder = Camera.main.ViewportToWorldPoint (
-			new Vector3 (0, 0, 0)
-				).x;
-		
-		var rightBorder = Camera.main.ViewportToWorldPoint(
-			new Vector3(1, 0, 0)
-			).x;
-		
-		var topBorder = Camera.main.ViewportToWorldPoint(
-			new Vector3(0, 0, 0)
-			).y;
-		
-		var bottomBorder = Camera.main.ViewportToWorldPoint(
-			new Vector3(0, 1, 0)
-			).y;
+		Vector2 topLeft = ScreenTopLeft ();
+		Vector2 bottomRight = ScreenBottomRight ();
 
-		if (this.gameObject.transform.position.x <= leftBorder || this.gameObject.transform.position.x >= rightBorder) {
+		if (this.gameObject.transform.position.x <= topLeft.x || this.gameObject.transform.position.x >= bottomRight.x) {
 			this.rigidbody2D.velocity = new Vector2(this.rigidbody2D.velocity.x * -1, this.rigidbody2D.velocity.y * 1);
 		}
 
-		if (this.gameObject.transform.position.y >= bottomBorder || this.gameObject.transform.position.y <= topBorder) {
+		if (this.gameObject.transform.position.y >= bottomRight.y || this.gameObject.transform.position.y <= topLeft.y) {
 			this.rigidbody2D.velocity = new Vector2(this.rigidbody2D.velocity.x * 1, this.rigidbody2D.velocity.y * -1);
 		}
 	}
@@ -82,5 +69,6 @@ public class BubbleScript : MonoBehaviour {
 	{
 		var explode = Instantiate (explosionPrefab) as Transform;
 		explode.transform.position = this.transform.position;
+		explode.parent = this.transform.parent;
 	}
 }
