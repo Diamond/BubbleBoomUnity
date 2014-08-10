@@ -316,6 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a4d029f19135e469ec6f628332a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  addedExplosion: 0
   explosionPrefab: {fileID: 400000, guid: d1db44da2d413d144b03389fe30fce69, type: 2}
 --- !u!1 &1069084115
 GameObject:
@@ -357,5 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  level: 0
+  ranExplosion: 0
   bubbleSpawner: {fileID: 421347922}
   explosionSpawner: {fileID: 1059893260}

@@ -7,15 +7,17 @@ public class GameControlScript : MonoBehaviour {
 	public bool ranExplosion = false;
 	public Transform bubbleSpawner;
 	public Transform explosionSpawner;
+	private BubbleSpawner _bs;
+	private ExplosionSpawner _es;
 
 	// Use this for initialization
 	void Start () {
-		BubbleSpawner bs = bubbleSpawner.GetComponent<BubbleSpawner> ();
-
+		_bs = bubbleSpawner.GetComponent<BubbleSpawner> ();
+		_es = explosionSpawner.GetComponent<ExplosionSpawner> ();
+		_bs.SpawnBubbles (10);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 }

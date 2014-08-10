@@ -70,5 +70,6 @@ public class BubbleScript : MonoBehaviour {
 		var explode = Instantiate (explosionPrefab) as Transform;
 		explode.transform.position = this.transform.position;
 		explode.parent = this.transform.parent;
+		explode.GetComponent<SpriteRenderer> ().color = this.GetComponent<SpriteRenderer> ().color;
 	}
 }
