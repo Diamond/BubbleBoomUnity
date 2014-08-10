@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class ExplosionSpawner : MonoBehaviour {
-	private bool explosionActive = false;
+	public bool addedExplosion = false;
 	public Transform explosionPrefab;
 
 	void Update()
@@ -22,6 +22,7 @@ public class ExplosionSpawner : MonoBehaviour {
 		if (!HasAnyExplosions ()) {
 			var explosion = Instantiate (explosionPrefab, new Vector3 (position.x, position.y, 0), Quaternion.identity) as Transform;
 			explosion.parent = this.transform;
+			addedExplosion = true;
 		}
 	}
 
