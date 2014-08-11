@@ -89,6 +89,6 @@ public class BubbleScript : MonoBehaviour {
 		explode.parent = explodeParent;
 		Color bc = this.GetComponent<SpriteRenderer> ().color;
 		explode.GetComponent<SpriteRenderer> ().color = new Color (bc.r, bc.g, bc.b, 0.9f);
-		gameControlScript.GetComponent<GameControlScript> ().addPoint ();
+		gameControlScript.GetComponent<GameControlScript> ().AddPoint ();
 	}
 }

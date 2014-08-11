@@ -21,13 +21,14 @@ public class GameControlScript : MonoBehaviour {
 		_bs = bubbleSpawner.GetComponent<BubbleSpawner> ();
 		_es = explosionSpawner.GetComponent<ExplosionSpawner> ();
 
-		transitionToNextLevel ();
+		RetrieveGameState ();
+		TransitionToNextLevel ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (score >= _nextLevel && _es.transform.childCount == 0) {
-			transitionToNextLevel();
+			TransitionToNextLevel();
 		}
 	}
 
@@ -36,15 +37,15 @@ public class GameControlScript : MonoBehaviour {
 		scoreDisplay.guiText.text = "Score " + score.ToString () + " / Next " + _nextLevel.ToString();
 	}
 
-	public void addPoint()
+	public void AddPoint()
 	{
 		score++;
 		UpdateScoreDisplay ();
 	}
 
-	public void transitionToNextLevel()
+	public void TransitionToNextLevel()
 	{
-		reset ();
+		Reset ();
 		switch (level) {
 		case 0:
 			_bs.SpawnBubbles (10);
@@ -55,15 +56,34 @@ public class GameControlScript : MonoBehaviour {
 			_nextLevel = 2;
 			break;
 		}
+		level++;
 		_totalScore += score;
 		score = 0;
 		UpdateScoreDisplay ();
+		UpdateGameState ();
 	}
 
-	public void reset()
+	public void Reset()
 	{
 		var children = new List<GameObject>();
 		foreach (Transform child in _bs.transform) children.Add(child.gameObject);
 		children.ForEach(child => Destroy(child));
+	}
+
+	public void UpdateGameState()
+	{
+		PlayerPrefs.SetInt ("TotalScore", _totalScore);
+		PlayerPrefs.SetInt ("Level", level);
+		PlayerPrefs.Save ();
+	}
+
+	public void RetrieveGameState()
+	{
+		if (PlayerPrefs.HasKey ("Level")) {
+			level = PlayerPrefs.GetInt ("Level");
+		}
+		if (PlayerPrefs.HasKey ("TotalScore")) {
+			_totalScore = PlayerPrefs.GetInt ("TotalScore");
+		}
 	}
 }
