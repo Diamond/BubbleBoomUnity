@@ -26,7 +26,7 @@ public class ExplosionSpawner : MonoBehaviour {
 		}
 	}
 
-	bool HasAnyExplosions()
+	public bool HasAnyExplosions()
 	{
 		return (this.transform.childCount > 0);
 	}

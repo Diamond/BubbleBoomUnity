@@ -4,6 +4,7 @@ using System.Collections;
 public class BubbleScript : MonoBehaviour {
 	public float speed = 5.0f;
 	public Transform explosionPrefab;
+	public Transform gameControlScript;
 
 	// Use this for initialization
 	void Start ()
@@ -48,12 +49,27 @@ public class BubbleScript : MonoBehaviour {
 		Vector2 topLeft = ScreenTopLeft ();
 		Vector2 bottomRight = ScreenBottomRight ();
 
-		if (this.gameObject.transform.position.x <= topLeft.x || this.gameObject.transform.position.x >= bottomRight.x) {
+		Vector3 pos = this.gameObject.transform.position;
+
+		if (pos.x <= topLeft.x || pos.x >= bottomRight.x) {
 			this.rigidbody2D.velocity = new Vector2(this.rigidbody2D.velocity.x * -1, this.rigidbody2D.velocity.y * 1);
 		}
 
-		if (this.gameObject.transform.position.y >= bottomRight.y || this.gameObject.transform.position.y <= topLeft.y) {
+		if (pos.y >= bottomRight.y || pos.y <= topLeft.y) {
 			this.rigidbody2D.velocity = new Vector2(this.rigidbody2D.velocity.x * 1, this.rigidbody2D.velocity.y * -1);
+		}
+
+		if (pos.x <= topLeft.x) {
+			this.gameObject.transform.position = new Vector3(topLeft.x + 0.3f, pos.y, pos.z);
+		}
+		if (pos.x >= bottomRight.x) {
+			this.gameObject.transform.position = new Vector3(bottomRight.x - 0.3f, pos.y, pos.z);
+		}
+		if (pos.y <= topLeft.y) {
+			this.gameObject.transform.position = new Vector3(pos.x, topLeft.y + 0.3f, pos.z);
+		}
+		if (pos.y >= bottomRight.y) {
+			this.gameObject.transform.position = new Vector3(pos.x, bottomRight.y - 0.3f, pos.z);
 		}
 	}
 
@@ -67,9 +83,12 @@ public class BubbleScript : MonoBehaviour {
 
 	void SpawnNewExplosion()
 	{
+		var explodeParent = gameControlScript.GetComponent<GameControlScript> ().explosionSpawner.transform;
 		var explode = Instantiate (explosionPrefab) as Transform;
 		explode.transform.position = this.transform.position;
-		explode.parent = this.transform.parent;
-		explode.GetComponent<SpriteRenderer> ().color = this.GetComponent<SpriteRenderer> ().color;
+		explode.parent = explodeParent;
+		Color bc = this.GetComponent<SpriteRenderer> ().color;
+		explode.GetComponent<SpriteRenderer> ().color = new Color (bc.r, bc.g, bc.b, 0.9f);
+		gameControlScript.GetComponent<GameControlScript> ().addPoint ();
 	}
 }

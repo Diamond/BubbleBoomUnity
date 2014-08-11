@@ -146,6 +146,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 64f3955b92fa15647a5aecf454605408, type: 2}
+      propertyPath: gameControlScript
+      value: 
+      objectReference: {fileID: 1069084116}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64f3955b92fa15647a5aecf454605408, type: 2}
   m_RootGameObject: {fileID: 421347920}
@@ -181,6 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingBubbleCount: 10
   bubblePrefab: {fileID: 400000, guid: 7fd7740fe17f61c4f8753463e15e8a7a, type: 2}
+  gameControlScript: {fileID: 1069084116}
 --- !u!4 &421347922
 Transform:
   m_ObjectHideFlags: 0
@@ -193,6 +198,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 191461291}
   m_RootOrder: 1
+--- !u!1 &757868817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 757868819}
+  - 132: {fileID: 757868818}
+  m_Layer: 0
+  m_Name: GUI Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!132 &757868818
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 757868817}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: Gui Text
+  m_Anchor: 1
+  m_Alignment: 0
+  m_PixelOffset: {x: 0, y: 0}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 12800000, guid: 7640e24b7be4b49de9af3276cb7f95eb, type: 3}
+  m_Material: {fileID: 0}
+  m_FontSize: 10
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_PixelCorrect: 1
+  m_RichText: 1
+--- !u!4 &757868819
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 757868817}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .5, y: .949999988, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
 --- !u!1 &858030289
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,3 +418,4 @@ MonoBehaviour:
   ranExplosion: 0
   bubbleSpawner: {fileID: 421347922}
   explosionSpawner: {fileID: 1059893260}
+  scoreDisplay: {fileID: 757868819}
