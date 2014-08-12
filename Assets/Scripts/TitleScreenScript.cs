@@ -8,19 +8,29 @@ public class TitleScreenScript : MonoBehaviour {
 
 	void OnGUI()
 	{
-		if (GUI.Button (new Rect (115, 350, 250, 49), newGame, GUIStyle.none)) {
+		float centerX = Screen.width / 2;
+		float centerY = Screen.height / 2;
+
+		Rect newGameRect = new Rect(centerX - (newGame.width/2), centerY, newGame.width, newGame.height);
+		if (GUI.Button (newGameRect, newGame, GUIStyle.none)) {
+			PlayerPrefs.SetString ("Mode", "Normal");
 			PlayerPrefs.SetInt ("TotalScore", 0);
 			PlayerPrefs.SetInt ("Level", 0);
 			PlayerPrefs.Save ();
 			Application.LoadLevel (1);
 		}
 
-		if (GUI.Button (new Rect (115, 415, 250, 49), continueGame, GUIStyle.none)) {
+		Rect continueGameRect = new Rect(centerX - (continueGame.width/2), centerY + 75, continueGame.width, continueGame.height);
+		if (GUI.Button (continueGameRect, continueGame, GUIStyle.none)) {
+			PlayerPrefs.SetString ("Mode", "Normal");
 			Application.LoadLevel (1);
 		}
 
-		if (GUI.Button (new Rect (115, 480, 250, 49), endless, GUIStyle.none)) {
-			print ("Endless Mode is not implemented yet");
+		Rect endlessRect = new Rect(centerX - (endless.width/2), centerY + 150, endless.width, endless.height);
+		if (GUI.Button (endlessRect, endless, GUIStyle.none)) {
+			PlayerPrefs.SetString ("Mode", "Endless");
+			PlayerPrefs.Save ();
+			Application.LoadLevel (1);
 		}
 	}
 }

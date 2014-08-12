@@ -84,7 +84,7 @@ GameObject:
   - 4: {fileID: 684762009}
   - 132: {fileID: 684762010}
   m_Layer: 0
-  m_Name: GUI Text
+  m_Name: ScoreMessage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,7 +219,7 @@ GameObject:
   - 4: {fileID: 1313921082}
   - 132: {fileID: 1313921081}
   m_Layer: 0
-  m_Name: GUI Text
+  m_Name: SuccessMessage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -289,6 +289,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextLevel: {fileID: 2800000, guid: a2a48a1e4724245e29ba73b9e0738141, type: 3}
   exit: {fileID: 2800000, guid: 64b6eaa80bc364c2989df283c05ada95, type: 3}
+  retry: {fileID: 2800000, guid: 657e932326a674b3aaa657db9ae03856, type: 3}
+  scoreDisplay: {fileID: 684762010}
+  successMessage: {fileID: 1313921081}
 --- !u!4 &1381921171
 Transform:
   m_ObjectHideFlags: 0

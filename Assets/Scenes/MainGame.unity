@@ -419,6 +419,7 @@ MonoBehaviour:
   bubbleSpawner: {fileID: 421347922}
   explosionSpawner: {fileID: 1059893260}
   scoreDisplay: {fileID: 757868819}
+  exit: {fileID: 2800000, guid: 64b6eaa80bc364c2989df283c05ada95, type: 3}
 --- !u!1001 &1541260993
 Prefab:
   m_ObjectHideFlags: 0

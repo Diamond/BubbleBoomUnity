@@ -10,31 +10,55 @@ public class GameControlScript : MonoBehaviour {
 	public Transform bubbleSpawner;
 	public Transform explosionSpawner;
 	public Transform scoreDisplay;
+	public Texture exit;
 
 	private BubbleSpawner _bs;
 	private ExplosionSpawner _es;
 	private int _nextLevel;
 	private int _totalScore = 0;
 
+	private bool endlessMode = false;
+
 	// Use this for initialization
 	void Start () {
 		_bs = bubbleSpawner.GetComponent<BubbleSpawner> ();
 		_es = explosionSpawner.GetComponent<ExplosionSpawner> ();
 
+		ranExplosion = false;
+		score = 0;
+		
 		RetrieveGameState ();
-		TransitionToNextLevel ();
+		if (endlessMode) {
+			Reset();
+			_bs.SpawnBubbles(20);
+			scoreDisplay.guiText.text = "Endless Mode";
+		} else {
+			TransitionToNextLevel ();
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (score >= _nextLevel && _es.transform.childCount == 0) {
-			TransitionToNextLevel();
+		if (_es.transform.childCount > 0) {
+			ranExplosion = true;
+		}
+		if (ranExplosion && _es.transform.childCount == 0) {
+			if (endlessMode) {
+				Reset();
+				_bs.SpawnBubbles(20);
+			} else {
+				TransitionToNextLevel(true);
+			}
 		}
 	}
 
 	public void UpdateScoreDisplay()
 	{
-		scoreDisplay.guiText.text = "Score " + score.ToString () + " / Next " + _nextLevel.ToString();
+		if (endlessMode) {
+			scoreDisplay.guiText.text = "Endless Mode";
+		} else {
+			scoreDisplay.guiText.text = "Score " + score.ToString () + " / Next " + _nextLevel.ToString();
+		}
 	}
 
 	public void AddPoint()
@@ -43,10 +67,10 @@ public class GameControlScript : MonoBehaviour {
 		UpdateScoreDisplay ();
 	}
 
-	public void TransitionToNextLevel()
+	public void TransitionToNextLevel(bool andTransition=false)
 	{
 		Reset ();
-		switch (level) {
+		switch (level % 10) {
 		case 0:
 			_bs.SpawnBubbles (10);
 			_nextLevel = 1;
@@ -55,12 +79,52 @@ public class GameControlScript : MonoBehaviour {
 			_bs.SpawnBubbles (10);
 			_nextLevel = 2;
 			break;
+		case 2:
+			_bs.SpawnBubbles (10);
+			_nextLevel = 3;
+			break;
+		case 3:
+			_bs.SpawnBubbles (10);
+			_nextLevel = 4;
+			break;
+		case 4:
+			_bs.SpawnBubbles (10);
+			_nextLevel = 5;
+			break;
+		case 5:
+			_bs.SpawnBubbles (10);
+			_nextLevel = 6;
+			break;
+		case 6:
+			_bs.SpawnBubbles (10);
+			_nextLevel = 7;
+			break;
+		case 7:
+			_bs.SpawnBubbles (10);
+			_nextLevel = 8;
+			break;
+		case 8:
+			_bs.SpawnBubbles (10);
+			_nextLevel = 9;
+			break;
+		case 9:
+			_bs.SpawnBubbles (10);
+			_nextLevel = 10;
+			break;
 		}
-		level++;
-		_totalScore += score;
+		if (score >= _nextLevel) {
+			level++;
+			_totalScore += score;
+			PlayerPrefs.SetString ("Status", "Success!");
+		} else {
+			PlayerPrefs.SetString ("Status", "Failure!");
+		}
 		score = 0;
 		UpdateScoreDisplay ();
 		UpdateGameState ();
+		if (andTransition) {
+			Application.LoadLevel (2);
+		}
 	}
 
 	public void Reset()
@@ -68,6 +132,7 @@ public class GameControlScript : MonoBehaviour {
 		var children = new List<GameObject>();
 		foreach (Transform child in _bs.transform) children.Add(child.gameObject);
 		children.ForEach(child => Destroy(child));
+		ranExplosion = false;
 	}
 
 	public void UpdateGameState()
@@ -84,6 +149,20 @@ public class GameControlScript : MonoBehaviour {
 		}
 		if (PlayerPrefs.HasKey ("TotalScore")) {
 			_totalScore = PlayerPrefs.GetInt ("TotalScore");
+		}
+		if (PlayerPrefs.HasKey("Mode")) {
+			endlessMode = PlayerPrefs.GetString("Mode") == "Endless";
+		}
+		score = 0;
+	}
+
+	void OnGUI()
+	{
+		float centerX = Screen.width / 2;
+		float centerY = Screen.height / 2;
+		Rect exitRect = new Rect(centerX - (exit.width/2), (Screen.height - exit.height - 25), exit.width, exit.height);
+		if (GUI.Button (exitRect, exit, GUIStyle.none)) {
+			Application.LoadLevel (0);
 		}
 	}
 }

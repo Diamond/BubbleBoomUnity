@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d96acdb41dab8c4f9d32e45d4f19f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   explosionPrefab: {fileID: 400000, guid: d1db44da2d413d144b03389fe30fce69, type: 2}
   gameControlScript: {fileID: 0}
 --- !u!212 &68212319
@@ -230,6 +230,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: .150000006
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7fd7740fe17f61c4f8753463e15e8a7a, type: 2}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7fd7740fe17f61c4f8753463e15e8a7a, type: 2}
   m_RootGameObject: {fileID: 1279938742}
@@ -294,7 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d96acdb41dab8c4f9d32e45d4f19f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   explosionPrefab: {fileID: 400000, guid: d1db44da2d413d144b03389fe30fce69, type: 2}
   gameControlScript: {fileID: 0}
 --- !u!212 &109923532
@@ -391,6 +395,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: .150000006
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7fd7740fe17f61c4f8753463e15e8a7a, type: 2}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7fd7740fe17f61c4f8753463e15e8a7a, type: 2}
   m_RootGameObject: {fileID: 109923528}
@@ -455,7 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d96acdb41dab8c4f9d32e45d4f19f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   explosionPrefab: {fileID: 400000, guid: d1db44da2d413d144b03389fe30fce69, type: 2}
   gameControlScript: {fileID: 0}
 --- !u!212 &315799351
@@ -564,7 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d96acdb41dab8c4f9d32e45d4f19f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   explosionPrefab: {fileID: 400000, guid: d1db44da2d413d144b03389fe30fce69, type: 2}
   gameControlScript: {fileID: 0}
 --- !u!212 &326701532
@@ -799,6 +807,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: .150000006
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7fd7740fe17f61c4f8753463e15e8a7a, type: 2}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7fd7740fe17f61c4f8753463e15e8a7a, type: 2}
   m_RootGameObject: {fileID: 1359036078}
@@ -863,6 +875,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: .150000006
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7fd7740fe17f61c4f8753463e15e8a7a, type: 2}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7fd7740fe17f61c4f8753463e15e8a7a, type: 2}
   m_RootGameObject: {fileID: 326701527}
@@ -926,6 +942,10 @@ Prefab:
     - target: {fileID: 400000, guid: 7fd7740fe17f61c4f8753463e15e8a7a, type: 2}
       propertyPath: m_LocalScale.y
       value: .150000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7fd7740fe17f61c4f8753463e15e8a7a, type: 2}
+      propertyPath: speed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7fd7740fe17f61c4f8753463e15e8a7a, type: 2}
@@ -1053,7 +1073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d96acdb41dab8c4f9d32e45d4f19f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   explosionPrefab: {fileID: 400000, guid: d1db44da2d413d144b03389fe30fce69, type: 2}
   gameControlScript: {fileID: 0}
 --- !u!212 &1279938747
@@ -1192,7 +1212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d96acdb41dab8c4f9d32e45d4f19f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   explosionPrefab: {fileID: 400000, guid: d1db44da2d413d144b03389fe30fce69, type: 2}
   gameControlScript: {fileID: 0}
 --- !u!212 &1359036083
@@ -1368,6 +1388,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: .150000006
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7fd7740fe17f61c4f8753463e15e8a7a, type: 2}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7fd7740fe17f61c4f8753463e15e8a7a, type: 2}
   m_RootGameObject: {fileID: 2101025847}
@@ -1431,6 +1455,10 @@ Prefab:
     - target: {fileID: 400000, guid: 7fd7740fe17f61c4f8753463e15e8a7a, type: 2}
       propertyPath: m_LocalScale.y
       value: .150000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 7fd7740fe17f61c4f8753463e15e8a7a, type: 2}
+      propertyPath: speed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7fd7740fe17f61c4f8753463e15e8a7a, type: 2}
@@ -1592,7 +1620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d96acdb41dab8c4f9d32e45d4f19f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   explosionPrefab: {fileID: 400000, guid: d1db44da2d413d144b03389fe30fce69, type: 2}
   gameControlScript: {fileID: 0}
 --- !u!212 &2101025852
