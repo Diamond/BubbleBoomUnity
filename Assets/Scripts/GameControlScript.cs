@@ -21,13 +21,13 @@ public class GameControlScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		RetrieveGameState ();
 		_bs = bubbleSpawner.GetComponent<BubbleSpawner> ();
 		_es = explosionSpawner.GetComponent<ExplosionSpawner> ();
 
 		ranExplosion = false;
 		score = 0;
-		
-		RetrieveGameState ();
+
 		if (endlessMode) {
 			Reset();
 			_bs.SpawnBubbles(20);
