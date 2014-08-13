@@ -12,6 +12,7 @@ public class BubbleSpawner : MonoBehaviour {
 			var newBubble = Instantiate(bubblePrefab) as Transform;
 			newBubble.position = new Vector3(0, 0, i);
 			newBubble.parent = this.transform;
+			//newBubble.GetComponent<BubbleScript>().speed = 2.5f;
 			newBubble.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), 1.0f);
 			newBubble.GetComponent<BubbleScript>().gameControlScript = gameControlScript;
 		}

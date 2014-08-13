@@ -5,13 +5,33 @@ public class TitleScreenScript : MonoBehaviour {
 	public Texture newGame;
 	public Texture continueGame;
 	public Texture endless;
+	public Texture credits;
+	public GUIText topScoreDisplay;
+
+	void Start()
+	{
+		UpdateDisplay();
+	}
+
+	void UpdateDisplay()
+	{
+		int topScore = 0;
+		int topLevel = 0;
+		if (PlayerPrefs.HasKey ("TopScore")) {
+			topScore = PlayerPrefs.GetInt ("TopScore");
+		}
+		if (PlayerPrefs.HasKey ("TopLevel")) {
+			topLevel = PlayerPrefs.GetInt ("TopLevel");
+		}
+		topScoreDisplay.text = "Top Score: " + topScore.ToString () + " Top Level: " + topLevel.ToString();
+	}
 
 	void OnGUI()
 	{
 		float centerX = Screen.width / 2;
 		float centerY = Screen.height / 2;
 
-		Rect newGameRect = new Rect(centerX - (newGame.width/2), centerY, newGame.width, newGame.height);
+		Rect newGameRect = new Rect(centerX - (newGame.width/2), centerY - 50, newGame.width, newGame.height);
 		if (GUI.Button (newGameRect, newGame, GUIStyle.none)) {
 			PlayerPrefs.SetString ("Mode", "Normal");
 			PlayerPrefs.SetInt ("TotalScore", 0);
@@ -20,17 +40,22 @@ public class TitleScreenScript : MonoBehaviour {
 			Application.LoadLevel (1);
 		}
 
-		Rect continueGameRect = new Rect(centerX - (continueGame.width/2), centerY + 75, continueGame.width, continueGame.height);
+		Rect continueGameRect = new Rect(centerX - (continueGame.width/2), centerY + 25, continueGame.width, continueGame.height);
 		if (GUI.Button (continueGameRect, continueGame, GUIStyle.none)) {
 			PlayerPrefs.SetString ("Mode", "Normal");
 			Application.LoadLevel (1);
 		}
 
-		Rect endlessRect = new Rect(centerX - (endless.width/2), centerY + 150, endless.width, endless.height);
+		Rect endlessRect = new Rect(centerX - (endless.width/2), centerY + 100, endless.width, endless.height);
 		if (GUI.Button (endlessRect, endless, GUIStyle.none)) {
 			PlayerPrefs.SetString ("Mode", "Endless");
 			PlayerPrefs.Save ();
 			Application.LoadLevel (1);
+		}
+
+		Rect creditsRect = new Rect(centerX - (credits.width/2), centerY + 175, credits.width, credits.height);
+		if (GUI.Button (creditsRect, credits, GUIStyle.none)) {
+			Application.LoadLevel (3);
 		}
 	}
 }

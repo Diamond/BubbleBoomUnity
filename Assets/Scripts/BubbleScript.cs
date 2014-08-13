@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class BubbleScript : MonoBehaviour {
-	public float speed = 3.0f;
+	public float speed = 1.0f;
 	public Transform explosionPrefab;
 	public Transform gameControlScript;
 

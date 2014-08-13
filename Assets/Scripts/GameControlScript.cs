@@ -71,45 +71,86 @@ public class GameControlScript : MonoBehaviour {
 	{
 		Reset ();
 		switch (level % 10) {
-		case 0:
-			_bs.SpawnBubbles (10);
-			_nextLevel = 1;
-			break;
 		case 1:
-			_bs.SpawnBubbles (10);
+			_bs.SpawnBubbles (5);
 			_nextLevel = 2;
 			break;
 		case 2:
-			_bs.SpawnBubbles (10);
+			_bs.SpawnBubbles (15);
 			_nextLevel = 3;
 			break;
 		case 3:
-			_bs.SpawnBubbles (10);
-			_nextLevel = 4;
-			break;
-		case 4:
-			_bs.SpawnBubbles (10);
+			_bs.SpawnBubbles (15);
 			_nextLevel = 5;
 			break;
-		case 5:
-			_bs.SpawnBubbles (10);
-			_nextLevel = 6;
-			break;
-		case 6:
-			_bs.SpawnBubbles (10);
+		case 4:
+			_bs.SpawnBubbles (15);
 			_nextLevel = 7;
 			break;
+		case 5:
+			_bs.SpawnBubbles (20);
+			_nextLevel = 10;
+			break;
+		case 6:
+			_bs.SpawnBubbles (20);
+			_nextLevel = 13;
+			break;
 		case 7:
-			_bs.SpawnBubbles (10);
-			_nextLevel = 8;
+			_bs.SpawnBubbles (25);
+			_nextLevel = 15;
 			break;
 		case 8:
-			_bs.SpawnBubbles (10);
-			_nextLevel = 9;
+			_bs.SpawnBubbles (30);
+			_nextLevel = 17;
 			break;
 		case 9:
-			_bs.SpawnBubbles (10);
-			_nextLevel = 10;
+			_bs.SpawnBubbles (30);
+			_nextLevel = 19;
+			break;
+		case 10:
+			_bs.SpawnBubbles(30);
+			_nextLevel = 22;
+			break;
+		case 11:
+			_bs.SpawnBubbles(30);
+			_nextLevel = 24;
+			break;
+		case 12:
+			_bs.SpawnBubbles(30);
+			_nextLevel = 26;
+			break;
+		case 13:
+			_bs.SpawnBubbles(35);
+			_nextLevel = 28;
+			break;
+		case 14:
+			_bs.SpawnBubbles(30);
+			_nextLevel = 28;
+			break;
+		case 15:
+			_bs.SpawnBubbles(25);
+			_nextLevel = 23;
+			break;
+		case 16:
+			_bs.SpawnBubbles(20);
+			_nextLevel = 18;
+			break;
+		case 17:
+			_bs.SpawnBubbles(18);
+			_nextLevel = 16;
+			break;
+		case 18:
+			_bs.SpawnBubbles(15);
+			_nextLevel = 12;
+			break;
+		case 19:
+			_bs.SpawnBubbles(40);
+			_nextLevel = 40;
+			break;
+		default:
+		case 0:
+			_bs.SpawnBubbles (5);
+			_nextLevel = 1;
 			break;
 		}
 		if (score >= _nextLevel) {
@@ -137,6 +178,24 @@ public class GameControlScript : MonoBehaviour {
 
 	public void UpdateGameState()
 	{
+		int currentTopScore = 0;
+		int currentTopLevel = 0;
+		if (PlayerPrefs.HasKey("TopScore")) {
+			currentTopScore = PlayerPrefs.GetInt("TopScore");
+			if (_totalScore > currentTopScore) {
+				PlayerPrefs.SetInt ("TopScore", _totalScore);
+			}
+		} else {
+			PlayerPrefs.SetInt ("TopScore", _totalScore);
+		}
+		if (PlayerPrefs.HasKey ("TopLevel")) {
+			currentTopLevel = PlayerPrefs.GetInt ("TopLevel");
+			if (level > currentTopLevel) {
+				PlayerPrefs.SetInt("TopLevel", level);
+			}
+		} else {
+			PlayerPrefs.SetInt("TopLevel", level);
+		}
 		PlayerPrefs.SetInt ("TotalScore", _totalScore);
 		PlayerPrefs.SetInt ("Level", level);
 		PlayerPrefs.Save ();

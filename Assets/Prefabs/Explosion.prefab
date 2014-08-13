@@ -127,8 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb29e41037f0d744db04307d660861eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxScale: 2.25
-  expandRate: .0500000007
+  maxScale: 2.5
+  expandRate: .0299999993
   shrinkRate: .075000003
   expanding: 1
   delay: 1.29999995

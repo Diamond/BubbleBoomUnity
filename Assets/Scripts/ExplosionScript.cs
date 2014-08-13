@@ -3,8 +3,8 @@ using System.Collections;
 
 public class ExplosionScript : MonoBehaviour {
 	public float maxScale   = 2.25f;
-	public float expandRate = 0.05f;
-	public float shrinkRate = 0.075f;
+	public float expandRate = 0.02f;
+	public float shrinkRate = 0.065f;
 	public bool  expanding  = false;
 	public float delay      = 1.3f;
 

@@ -68,8 +68,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d96acdb41dab8c4f9d32e45d4f19f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   explosionPrefab: {fileID: 400000, guid: d1db44da2d413d144b03389fe30fce69, type: 2}
+  gameControlScript: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
