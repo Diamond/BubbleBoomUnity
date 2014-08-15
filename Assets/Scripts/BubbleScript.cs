@@ -60,16 +60,16 @@ public class BubbleScript : MonoBehaviour {
 		}
 
 		if (pos.x <= topLeft.x) {
-			this.gameObject.transform.position = new Vector3(topLeft.x + 0.3f, pos.y, pos.z);
+			this.gameObject.transform.position = new Vector3(topLeft.x + 0.1f, pos.y, pos.z);
 		}
 		if (pos.x >= bottomRight.x) {
-			this.gameObject.transform.position = new Vector3(bottomRight.x - 0.3f, pos.y, pos.z);
+			this.gameObject.transform.position = new Vector3(bottomRight.x - 0.1f, pos.y, pos.z);
 		}
 		if (pos.y <= topLeft.y) {
-			this.gameObject.transform.position = new Vector3(pos.x, topLeft.y + 0.3f, pos.z);
+			this.gameObject.transform.position = new Vector3(pos.x, topLeft.y + 0.1f, pos.z);
 		}
 		if (pos.y >= bottomRight.y) {
-			this.gameObject.transform.position = new Vector3(pos.x, bottomRight.y - 0.3f, pos.z);
+			this.gameObject.transform.position = new Vector3(pos.x, bottomRight.y - 0.1f, pos.z);
 		}
 	}
 

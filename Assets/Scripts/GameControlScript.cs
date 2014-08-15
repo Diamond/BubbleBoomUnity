@@ -28,6 +28,12 @@ public class GameControlScript : MonoBehaviour {
 		ranExplosion = false;
 		score = 0;
 
+		if (PlayerPrefs.HasKey("MusicOn")) {
+			if (PlayerPrefs.GetInt("MusicOn") == 0) {
+				this.audio.mute = true;
+			}
+		}
+
 		if (endlessMode) {
 			Reset();
 			_bs.SpawnBubbles(20);

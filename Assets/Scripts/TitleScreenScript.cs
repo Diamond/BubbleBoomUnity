@@ -6,11 +6,28 @@ public class TitleScreenScript : MonoBehaviour {
 	public Texture continueGame;
 	public Texture endless;
 	public Texture credits;
+	public Texture options;
 	public GUIText topScoreDisplay;
+
+	private int _soundState;
 
 	void Start()
 	{
 		UpdateDisplay();
+		if (PlayerPrefs.HasKey("SoundOn")) {
+			_soundState = PlayerPrefs.GetInt ("SoundOn");
+		}
+
+		if (PlayerPrefs.HasKey("MusicOn")) {
+			if (PlayerPrefs.GetInt("MusicOn") == 0) {
+				this.audio.mute = true;
+			}
+		}
+	}
+
+	bool IsSoundOn()
+	{
+		return _soundState == 1;
 	}
 
 	void UpdateDisplay()
@@ -53,9 +70,15 @@ public class TitleScreenScript : MonoBehaviour {
 			Application.LoadLevel (1);
 		}
 
-		Rect creditsRect = new Rect(centerX - (credits.width/2), centerY + 175, credits.width, credits.height);
+		Rect optionsRect = new Rect(centerX - (options.width/2), centerY + 175, options.width, options.height);
+		if (GUI.Button (optionsRect, options, GUIStyle.none)) {
+			Application.LoadLevel (4);
+		}
+
+		Rect creditsRect = new Rect(centerX - (credits.width/2), centerY + 250, credits.width, credits.height);
 		if (GUI.Button (creditsRect, credits, GUIStyle.none)) {
 			Application.LoadLevel (3);
 		}
+
 	}
 }

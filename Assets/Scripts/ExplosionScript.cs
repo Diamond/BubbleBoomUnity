@@ -10,6 +10,12 @@ public class ExplosionScript : MonoBehaviour {
 
 	void Start() {
 		expanding = true;
+
+		if (PlayerPrefs.HasKey("SoundOn")) {
+			if (PlayerPrefs.GetInt("SoundOn") == 0) {
+				this.audio.mute = true;
+			}
+		}
 	}
 	
 	// Update is called once per frame

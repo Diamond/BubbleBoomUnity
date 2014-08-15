@@ -64,11 +64,11 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  iPhoneBundleIdentifier: com.sagadev.BubbleBoom
+  iPhoneBundleIdentifier: com.sagadev.bubbleboomunity
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   productGUID: 8257f200a155a9c4f92f0996afc907fd
-  iPhoneBundleVersion: 1.1.0
+  iPhoneBundleVersion: 1.1.1
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 9
   AndroidPreferredInstallLocation: 1
