@@ -76,7 +76,7 @@ public class GameControlScript : MonoBehaviour {
 	public void TransitionToNextLevel(bool andTransition=false)
 	{
 		Reset ();
-		switch (level % 10) {
+		switch (level % 20) {
 		case 1:
 			_bs.SpawnBubbles (5);
 			_nextLevel = 2;

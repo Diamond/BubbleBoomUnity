@@ -8,7 +8,7 @@ public class BubbleSpawner : MonoBehaviour {
 	
 	public void SpawnBubbles(int count)
 	{
-		for (int i = 0; i < startingBubbleCount; i++) {
+		for (int i = 0; i < count; i++) {
 			var newBubble = Instantiate(bubblePrefab) as Transform;
 			newBubble.position = new Vector3(0, 0, i);
 			newBubble.parent = this.transform;
